@@ -1,0 +1,23 @@
+<!-- Generated template for the IdeaComment component -->
+<div class="comment-wrapper">
+  <div class="header-line">
+    <div *ngIf='comment.author.avatarImg!=null'class="avatar-wrapper" >
+      
+      <!--ПОСТАВИТЬ СЮДА ИДЕЯ-ИМАДЖ-->
+      <img class="avatar-img" [src]='comment.author.avatarImg' >
+     
+    </div>
+  
+      <div #headerText class="header-text-wrapper">
+        <h2>{{comment.author.name}}</h2>
+        <div> {{comment.date}}</div>
+      </div>
+      <idea-comment-mark *ngIf="comment.mark" style='height:44px'[mark]="comment.mark"></idea-comment-mark>
+   </div>
+  
+  <div class="content-line">
+    <h2 *ngIf="comment.slogan">{{comment.slogan}}</h2>
+    <div class ="main-content">{{comment.content}}</div>
+  </div>
+
+</div>

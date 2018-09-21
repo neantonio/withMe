@@ -1,0 +1,34 @@
+idea-comment-mark {
+    .idea-mark-wrapper{
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+    .idea-mark{
+        height: 100%;
+        margin: 0 2px;
+        width:10px;
+        border: 1px solid;
+        border-color: map-get($colors, primary );
+        background-color:  map-get($colors, main-back )
+    }
+    .filled{
+            background-color:  map-get($colors, primary ) !important;
+    }
+    .mark-one{
+        height: 20%;
+    }
+    .mark-two{
+        height: 40%;
+    }
+    .mark-three{
+        height: 60%;
+    }
+    .mark-four{
+        height: 80%;
+    }
+    .mark-five{
+        height: 100%;
+    }
+}

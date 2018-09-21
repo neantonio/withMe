@@ -1,0 +1,75 @@
+idea-expandable-list {
+    .scroll-content{
+        padding: 0 !important;
+    }
+    .expanded-list-background{
+        width:100vw;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: -100;
+        transition: background-color 0.3s;
+        overflow-y: scroll;
+    }
+     .with-back-ground{
+        
+        background-color: map-get($colors ,main-back )
+    }
+    .overlapped{
+        z-index: 100 !important;
+    }
+    .copy{
+        position: relative;
+       
+    }
+    .hide-button{
+        position: fixed;
+    }
+    .content-expanded{
+        opacity: 0;
+        transition: opacity 0.8s;
+    }
+    .content-origin{
+        opacity: 1;
+        transition: opacity 0.8s;
+       
+    }
+    .movable{
+        transition: 0.3s ease-out
+    }
+    .copy-wrapper{
+         left: 0;
+        top: 0;
+         z-index: -100;
+        position: fixed;
+      
+        width:100%;
+        height: 90%;
+        overflow-y: scroll;
+    }
+    .header-hider{
+        overflow: hidden;
+    }
+    .expanded-item-wrapper{
+        position: relative;
+        left: 100vw;
+        transition: 1.3s;
+        transform: translateX(-100vw);
+    }
+    .full-opacity{
+        opacity: 1;
+    }
+    .none-opacity{
+        opacity: 0;
+    }
+    .no-text{
+        color:  map-get($colors ,primary )
+    }
+    .expand-button{
+        transition: color 0.3s;
+    }
+   .relative{
+       position: relative;
+   }
+}

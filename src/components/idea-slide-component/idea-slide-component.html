@@ -1,0 +1,8 @@
+<!-- Generated template for the IdeaSlideComponent component -->
+<ion-slides (ionSlideDidChange)="onSlideChange()">
+  <ion-slide *ngFor="let item of slideItems">
+    <ion-card>
+    <content-preview [contentPreview]="item" (firstClick)="itemFirstClick.emit()" (secondClick)="itemSecondClick.emit()"></content-preview>
+    </ion-card>
+  </ion-slide>
+</ion-slides>

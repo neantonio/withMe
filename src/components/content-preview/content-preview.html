@@ -1,0 +1,13 @@
+<!-- Generated template for the ContentPreviewComponent component -->
+
+
+<div class="content-preview-wrapper" (click)="onClick()">
+  <div class="content-preview-image">
+    <img [src]="contentPreview.image">
+  </div>
+  <div class="content-preview-text">
+    <h2>{{contentPreview.title}}</h2>
+   <idea-distance [pos]="contentPreview"></idea-distance> <p class="content-preview-category">{{categoryString}}</p>
+    <p class="content-preview-description">{{contentPreview.shortDescription}}</p>
+  </div>
+</div>

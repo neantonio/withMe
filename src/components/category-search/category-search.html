@@ -1,0 +1,22 @@
+<!-- Generated template for the CategorySearch component -->
+<div class="container">
+  <ion-searchbar (ionFocus)="showFound()" [(ngModel)]="input" [showCancelButton]="shouldShowCancel" (ionInput)="  findCagories()"
+    (ionCancel)="findCagories()">
+  </ion-searchbar>
+
+  <div class="found-categories" *ngIf="displayFound">
+    <ion-card>
+      <ion-list>
+        <ion-item *ngFor="let item of foundCategories" (click)="selectItem(item)">
+          <span *ngFor="let text of item.items">
+   <ion-icon *ngIf="item.items.indexOf(text)!=0" name="ion-chevron-right"></ion-icon>
+    <span >{{text}}</span>
+          </span>
+
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </div>
+
+  <div class="back" *ngIf="((foundCategories.length>0)&&(displayFound))" (click)="hideFound()"></div>
+</div>

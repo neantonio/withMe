@@ -1,0 +1,109 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>M</button>
+    <ion-title>
+      {{scrrollPos}}
+    </ion-title>
+
+  </ion-navbar>
+
+  <!--<scroll-controller [anchors]="anchors" (positionChange)="onAnchorChange($event)" [(position)]="scrollPosition"></scroll-controller>-->
+
+</ion-header>
+
+
+<ion-content id="content" padding (ionScroll)="onScroll()">
+
+
+
+  <p floating [fixedPosition]="'56px'" fixedClass='fixed-test'>title</p>
+  <button ion-button color="light" (click)="onCreateIdea()" class="button button-positive button-block icon ion-alert-circled">Добавить идею</button>
+
+  <ion-list>
+    <ion-item *ngFor="let suggestion of displaiedSuggestions" (click)="onShowDetails(suggestion)">
+
+      <ion-icon [name]="suggestion.icon" item-start></ion-icon>
+
+      <h2> {{suggestion.whatToDo}}</h2>
+      <h3> {{suggestion.withWhom}}</h3>
+
+    </ion-item>
+  </ion-list>
+
+
+
+  <button [online]="'style class'" offlineClass="active-button" ion-button color="light" (onlineClick)="onFunq()" class="button button-positive button-block icon ion-alert-circled">fun</button>
+  <button ion-button color="light" (click)="onFun2()" class="button button-positive button-block icon ion-alert-circled">fun2</button>
+
+  <!--<idea-price-and-buy></idea-price-and-buy>-->
+
+  <idea-expandable-list [data]="comments" [callbackToGetData]="getSomeData" [hideFromTop]=56 hideButtonEffect='slideFromLeft'>
+    <ng-template let-item>
+      <idea-comment [comment]="item"></idea-comment>
+    </ng-template>
+  </idea-expandable-list>
+
+
+  <idea-expandable-list [data]="imageLine" [callbackToGetData]="getSomeData2" style="margin: 0 -16px;" [hideFromTop]=56 hideButtonEffect='moveFromRight'>>
+    <ng-template let-item>
+      <image-container [root]="item">
+        <div style="width:100%;height:100%" id='test'></div>
+      </image-container>
+    </ng-template>
+
+    <idea-expand-button>
+      <div >expand</div>
+    </idea-expand-button> 
+     <idea-hide-button>
+      <div >hide</div>
+    </idea-hide-button>
+
+  </idea-expandable-list>
+
+  <button ion-button color="light" (click)="onFun3()" class="button button-positive button-block icon ion-alert-circled">content</button>
+  <button ion-button color="light" (click)="onFun3()" class="button button-positive button-block icon ion-alert-circled">content</button>
+  <button ion-button color="light" (click)="onFun3()" class="button button-positive button-block icon ion-alert-circled">content</button>
+  <button ion-button color="light" (click)="onFun3()" class="button button-positive button-block icon ion-alert-circled">content</button>
+  <button ion-button color="light" (click)="onFun3()" class="button button-positive button-block icon ion-alert-circled">content</button>
+  <button ion-button color="light" (click)="onFun3()" class="button button-positive button-block icon ion-alert-circled">content</button>
+  <button
+    ion-button color="light" (click)="onFun3()" class="button button-positive button-block icon ion-alert-circled">content</button>
+    <button ion-button color="light" (click)="onFun3()" class="button button-positive button-block icon ion-alert-circled">content</button>
+    <button ion-button color="light" (click)="onFun3()" class="button button-positive button-block icon ion-alert-circled">content</button>
+    <button ion-button color="light" (click)="onFun3()" class="button button-positive button-block icon ion-alert-circled">content</button>
+    <button ion-button color="light" (click)="onFun3()" class="button button-positive button-block icon ion-alert-circled">content</button>
+    <button ion-button color="light" (click)="onFun3()" class="button button-positive button-block icon ion-alert-circled">content</button>
+    <button
+      ion-button color="light" (click)="onFun3()" class="button button-positive button-block icon ion-alert-circled">content</button>
+      <button ion-button color="light" (click)="onFun3()" class="button button-positive button-block icon ion-alert-circled">content</button>
+      <button ion-button color="light" (click)="onFun3()" class="button button-positive button-block icon ion-alert-circled">content</button>
+      <button ion-button color="light" (click)="onFun3()" class="button button-positive button-block icon ion-alert-circled">content</button>
+      <button ion-button color="light" (click)="onFun3()" class="button button-positive button-block icon ion-alert-circled">content</button>
+      <button ion-button color="light" (click)="onFun3()" class="button button-positive button-block icon ion-alert-circled">content</button>
+
+      <ion-list>
+        <ion-item *ngFor="let item of testData">
+          {{item}}
+        </ion-item>
+      </ion-list>
+
+
+
+
+</ion-content>
+
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="ideas" (click)="selectIdeas()">
+        Идеи
+      </ion-segment-button>
+      <ion-segment-button value="walks" (click)="selectWalks()">
+        Прогулкм
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>

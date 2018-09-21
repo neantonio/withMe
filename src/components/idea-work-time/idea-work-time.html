@@ -1,0 +1,18 @@
+<!-- Generated template for the IdeaWorkTime component -->
+<div class='work-time-wrapper'>
+  <div class='open-wrapper'></div>
+  <div class='text-content-wrapper'>
+    <div class='today'></div>
+    <div class='main-text'>
+      {{workTimeService. getMainWorkTimeText(0)|translate}}
+    </div>
+    <div *ngIf="workTimeService.hasRemark(0)" class='remark'>
+     <span>{{workTimeService.getRemarkLabel(0)|translate}}</span>
+     <span>{{': '+workTimeService.getRemarkValue(0)+' '}}</span> 
+     <span>{{workTimeService.getTextAfterRemark(0)|translate}}</span>
+     <!--{{workTimeService.getRemarkLabel(0)|translate+':'+workTimeService.getRemarkValue(0)+' '+workTimeService.getTextAfterRemark(0)|translate}}-->
+        
+    </div>
+  </div>
+ 
+</div>

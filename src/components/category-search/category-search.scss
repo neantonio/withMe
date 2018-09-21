@@ -1,0 +1,21 @@
+category-search {
+    .container{
+        position: relative;
+    }
+     .back{
+       height: 100vh; 
+       z-index: 3;
+       left:-26px;
+        width: 120vw;
+        position: absolute;
+        opacity: 0.5;
+        background: linear-gradient(to top, map-get($colors,dark) , map-get($colors,main-back) );
+        
+    }
+
+    .found-categories{
+        position:absolute;
+        width:100%; 
+        z-index: 4;
+    }
+}

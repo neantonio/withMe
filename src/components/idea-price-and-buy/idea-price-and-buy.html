@@ -1,0 +1,44 @@
+<!-- Generated template for the IdeaPriceAndBuy component -->
+<div class="price-buy-wrapper" *ngIf="canShow()">
+ 
+  <div class="cymbol-price-wrapper"> 
+   <!--<div class="cymbol-wrapper">
+     <div style="width:100%;height:100%;position:relative">
+     <object id="svg1" data="http://62.176.1.193:8080/svg?id=rub" type="image/svg+xml"></object>
+   
+     </div>
+   </div>-->
+
+ <div class="price-wrapper"  (click)="onShowCurrencyConversion()">
+   <div *ngIf="((price.price.min!=null)&&(price.price.max!=null)&&(price.price.average==null))" class="price-range">{{round(price.price.min) +'-'+round(price.price.max)+getCurrencySymbol()}}</div>
+   <div *ngIf="((price.price.min==null)&&(price.price.max==null)&&(price.price.average!=null))" class="price-average">{{round(price.price.average)+getCurrencySymbol()}}</div>
+   <div *ngIf="((price.price.min!=null)&&(price.price.max==null)&&(price.price.average==null))" class="price-max price-range">{{'from'|translate}}{{' '+round(price.price.min)+getCurrencySymbol()}}</div>
+    <div *ngIf="((price.price.min==null)&&(price.price.max!=null)&&(price.price.average==null))" class="price-max price-range">{{'to'|translate}}{{' '+round(price.price.max)+getCurrencySymbol()}}</div>
+ </div>
+  </div>
+ <div *ngIf="price. buyButtonText!=null" class="buy-wrapper" >
+   <button ion-button (click)="onBuy()" >
+     <div class="buy-inner">
+       <div class="main-buy-text">{{price.buyButtonText | translate}}</div>
+         <div *ngIf="price.storeName!=null"class="sub-buy-text">{{'on'|translate}}{{' '+price.storeName}}</div>
+     </div>
+   </button>
+ </div>
+</div>
+
+<idea-modal [(show)]="showCurrencyConversion" [showLoading]="conversionLoading">
+  <div *ngFor="let item of conversionResult" class="cymbol-price-wrapper">
+  <div class="cymbol-wrapper">
+     <div style="width:100%;height:100%;position:relative">
+     <object id="svg1" data="http://62.176.1.193:8080/svg?id=rub" type="image/svg+xml"></object>
+   <!--<img  style="display: block" [src]="'http://62.176.1.193:8080'+'/svg?id='+price.currency" imageViewer/>-->
+     </div>
+   </div>
+
+ <div class="price-wrapper"  >
+   <div *ngIf="item.results[0]!=null" class="price-min price-sub">{{round(item.results[0])}}</div>
+   <div *ngIf="item.results[1]!=null" class="price-average">{{round(item.results[1])}}</div>
+   <div *ngIf="item.results[2]!=null" class="price-max price-sub">{{round(item.results[2])}}</div>
+ </div>
+  </div>
+</idea-modal>

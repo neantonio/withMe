@@ -1,0 +1,46 @@
+idea-parameter {
+     ion-scroll {
+        white-space: nowrap;
+        height: 150px;
+    }
+
+    .scroll-item {
+        width:80vw;
+        display: inline-block;
+    }
+
+    .container {
+        position: relative;
+        min-height: 76px;
+    }
+
+    .left-block {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+       
+        height: 100%;
+        width: 10%;
+        color: black;
+        background: map-get($colors , primary )
+    }
+
+    .center-block {
+        margin-left: 12%;
+        width: 74%;
+    }
+
+    .right-block {
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        font-size: 25px;
+        height: 100%;
+    }
+
+    .category-icon {
+        font-size: 50px;
+    }
+}

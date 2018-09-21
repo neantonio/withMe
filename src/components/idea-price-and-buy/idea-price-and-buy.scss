@@ -1,0 +1,76 @@
+idea-price-and-buy {
+    .price-buy-wrapper{
+        display: flex;
+        justify-content: space-between;
+   
+        margin: 8px 0;
+    }
+  .cymbol-price-wrapper{
+      width:40%;
+      display: flex;
+  }
+    .cymbol-wrapper object{
+        
+        position: absolute;
+        height: 90%;
+        top:0;
+        left:0;
+    }
+    .cymbol-wrapper svg{
+       
+        fill: map-get($colors,dark)
+    }
+    .cymbol-wrapper{
+        position: relative;
+       
+      
+            width: 25%;
+            display: flex;
+            padding: 4px;
+            justify-content: center;
+            align-content: center;
+    }
+    .price-wrapper{
+        padding: 0 4px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .price-min{
+        text-align: left;
+    }
+    .price-max{
+        text-align: right;
+    }
+    .price-average{
+        text-align: center;
+        font-size: 7vw;
+        font-weight: bold;
+    }
+    .price-range{
+        text-align: center;
+        font-size: auto;
+        font-weight: bold;
+    }
+    .price-sub{
+        font-size:3vw
+    }
+    .buy-wrapper{
+        padding: 4px;
+            display: flex;
+     align-content: center; 
+    width: 60%;
+    }
+    .buy-wrapper button{
+        width: 100%;
+    }
+    idea-modal .cymbol-price-wrapper{
+        min-width: 50vw;
+    }
+    .sub-buy-text{
+        font-size: 50%;
+        margin-top: 3px;
+    }
+
+}

@@ -1,0 +1,35 @@
+<ion-menu [content]="content">
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>LEFT MENU</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>                             
+        <ion-list>
+            <ion-item menuClose>
+                <ion-icon name=""></ion-icon>
+                ABC
+                <ion-icon name="contact" item-right></ion-icon>
+            </ion-item>
+            <ion-item menuClose>
+                <ion-icon name=""></ion-icon>
+                XYZ
+                <ion-icon name="person" item-right></ion-icon>
+            </ion-item>
+
+            <ion-list-header>User</ion-list-header>
+            <ion-item menuClose>
+                <ion-icon name=""></ion-icon>
+                Forget Password
+                <ion-icon name="key" item-right></ion-icon></ion-item>
+            <ion-item menuClose>
+                <ion-icon name=""></ion-icon>
+                Logout
+                <ion-icon name="lock" item-right></ion-icon>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

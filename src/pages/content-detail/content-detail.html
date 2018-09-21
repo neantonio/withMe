@@ -1,0 +1,38 @@
+<!--
+  Generated template for the ContentDetail page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--<ion-header>
+
+  <ion-navbar>
+    <ion-title>content-detail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+-->
+
+<ion-content padding>
+
+<idea-expandable-list *ngIf="images" [data]="imagesWrapper"
+     [callbackToGetData]="getImagesForExpanding.bind(this)" style="margin: 0 -16px;">
+  <ng-template let-item>
+  <image-container [images]="item"><div style="width:100%;height:100%" id='test'></div></image-container>
+</ng-template>
+</idea-expandable-list>
+
+<h2>{{contentItem.title}}</h2>
+<p class="categories">{{_contentService.getCategoryString(contentItem.categories)}}</p>
+<p class="full-description">{{contentItem.fullDescription}}</p>
+
+<idea-price-and-buy [price]="contentItem.price"></idea-price-and-buy>
+
+<idea-expandable-list *ngIf="comments" [data]="comments.comments" 
+    [callbackToGetData]="getCommentsForExpanding" [hideFromTop]=56>
+  <ng-template let-item>
+    <idea-comment [comment]="item"></idea-comment> 
+  </ng-template>
+</idea-expandable-list>
+
+</ion-content>

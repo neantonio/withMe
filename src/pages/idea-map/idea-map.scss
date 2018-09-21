@@ -1,0 +1,89 @@
+page-idea-map {
+background-color:rgba(0,0,0,.3);
+     .parent{
+       padding: 16px;
+       height: 100%;
+     }
+    
+    .test{
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      width:50px;
+      height: 50px;
+      background-color: map-get($colors, primary )
+    }
+    .red{
+      background-color: red;
+    }
+    .label{
+      position: absolute;
+    }
+    .hiden{
+      display: none;
+    }
+    .map-control{
+      z-index:100;
+      position: absolute;
+      
+    }
+    .big-button{   
+      width:8vw;
+      height: 8vw;
+      max-width: 70px;
+      max-height: 70px;
+      min-width: 40px !important;
+      min-height: 40px;
+      font-size: 3.5vw;
+    }
+    .map-button{
+      border-radius: 50%;
+    }
+    .small-button{
+      width:4vw;
+      height: 4vw;
+      max-width: 40px;
+      max-height: 40px;
+      min-width: 20px;
+      min-height: 20px;
+      font-size: 1.5vw;
+    }
+    .close-button{
+      right:2vw;
+      top:2vw;
+      
+    }
+    .search-button{
+      left:0;
+      bottom:15vw;
+      padding: 8px;
+    }
+    .component-wrapper{
+        position: absolute;
+        bottom: 0;
+        padding: 8px;
+        width:100%;
+        height: 15vh;
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    ion-card{
+      height: 100%;
+      width: 100% !important;
+
+      // margin сбивает разметкку внутри слайдера
+      margin: 0 !important;
+      padding: 8px;
+    }
+    .slide-zoom{
+      height: 100%;
+    }
+    .content-preview-wrapper{
+      height: 100%;
+    }
+
+    idea-slide-component{
+      height: 100%;
+    }
+}

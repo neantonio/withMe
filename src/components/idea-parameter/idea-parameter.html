@@ -1,0 +1,185 @@
+
+<ion-card style="padding: 20px;"  *ngIf="parameter.type=='slider-text'">
+  <idea-slider-parameter [numberValue]="parameter.numberValue" [valuesToShow]="parameter.availableStringValues" [description]="parameter.description"></idea-slider-parameter>
+</ion-card>
+
+
+
+
+<div *ngIf="parameter.type=='many-of-many'">
+  <ion-chip *ngFor="let textItem of parameter.availableStringValues" [color]="textItem.selected? 'primary':'default'" (click)="toggleItem(textItem)">
+    <ion-label>{{textItem.description}}</ion-label>
+  </ion-chip>
+</div>
+
+<div *ngIf="parameter.type=='time-parameter'">
+  <idea-time-parameter [parameter]="parameter" (parameterChanged)="parameterChanged.emit()"></idea-time-parameter>
+</div>
+
+<div *ngIf="parameter.type=='many-of-many-images'">
+<ion-card  class="category-icon">
+  <div class="category-icon-wrapper">
+    <ul>
+      <li *ngFor="let textItem of parameter.availableStringValues">
+        <ion-icon [color]="textItem.selected? 'primary':'dark'" [name]="textItem.icon" (click)="toggleItem(textItem)">
+        </ion-icon>
+        <li>
+    </ul>
+    <category-search [rootCategories]="parameter.availableStringValues" (parameterChanged)="parameterChanged.emit()"></category-search>
+  </div>
+</ion-card>
+
+<!--<div *ngIf="parameter.type=='many-of-many-subcategory'">-->
+  <div *ngFor="let item of parameter.availableStringValues">
+    <ion-card *ngIf="item.selected">
+      <div class="container">
+        <div class="left-block category-icon">
+
+          <ion-icon [color]="'main-back'" [name]="item.icon"></ion-icon>
+
+        </div>
+        <div class="center-block">
+          <div class="right-block">
+            <ion-icon [color]="'primary'" [name]="'close-circle'" (click)="toggleItem(item)"></ion-icon>
+          </div>
+          <ion-chip *ngFor="let subItem of item.subcategory" [color]="subItem.selected? 'primary':'default'" (click)="toggleItem(subItem)">
+            <ion-label>{{subItem.description}}</ion-label>
+          </ion-chip>
+          <ion-chip [color]="'default'" (click)="addSubItem(item)">
+            <ion-label>+</ion-label>
+          </ion-chip>
+        </div>
+
+      </div>
+
+    </ion-card>
+
+    <ion-scroll #scroll [style]="getScrollHeight()" scrollX="true" *ngIf="getSelectedParametersWithSubcategories(item).length>0">
+     
+      <!--style="margin-left:auto; width:70%;"-->
+      <div class="scroll-item" *ngFor="let subsubcategory of getSelectedParametersWithSubcategories(item)">
+        <ion-card style="display: inline-block !important;position:relative;margin-top:0;margin-bottom:0;" [id]="subsubcategory.description.length">
+
+          <!--<ion-label style="margin: 0;color:black">{{subsubcategory.description+' :'}}</ion-label>-->
+          <div class="left-block" style="width:3vw"></div>
+          <div class="container">
+
+
+
+            <div class="center-block" style="margin-left:3vw;margin-right:6vw;">
+
+              <div class="right-block" style="position: absolute;padding:1vw;">
+                <ion-icon [color]="'primary'" [name]="'close-circle'" (click)="toggleItem(subsubcategory)"></ion-icon>
+              </div>
+
+              <ion-chip *ngFor="let subItem of subsubcategory.subcategory" [color]="subItem.selected? 'primary':'default'" (click)="toggleItem(subItem)"
+                style="float:left">
+                <ion-label>{{subItem.description}}</ion-label>
+              </ion-chip>
+
+            </div>
+
+          </div>
+
+
+        </ion-card>
+      </div>
+    </ion-scroll>
+
+  </div>
+</div>
+
+<style>
+  ion-scroll {
+    white-space: nowrap;
+  }
+  ion-range{
+    display: block;
+    padding: 0;
+  }
+
+  div .scroll-content {
+    padding-top: 0 !important;
+  }
+
+  .card-item {
+    width: auto;
+  }
+
+  .scroll-item {
+    vertical-align: top;
+    display: inline-block !important;
+  }
+
+
+  .container {
+    position: relative;
+    min-height: 76px;
+  }
+
+  .left-block {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    text-align: center;
+    height: 100%;
+    width: 9vw;
+
+    background: #488aff;
+  }
+
+  .center-block {
+    margin-left: 9vw;
+
+    padding: 1vw;
+  }
+
+  .right-block {
+
+    right: 0;
+    top: 0;
+    float: right;
+    font-size: 25px;
+    height: 100%;
+  }
+
+  .category-icon {
+    font-size: 7vw;
+    overflow: visible;
+  }
+
+  .vertical-text {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    color: white;
+  }
+
+
+
+  .category-icon-wrapper {
+    background: #f4f4f4;
+    width: 100%;
+  }
+
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 2em;
+    line-height: 2em;
+    margin: 0;
+  }
+
+  .scroll-content::after{
+    position:absolute;width:100%;height:100%;z-index:9;
+    content: ';k';
+  }
+
+  li {
+    text-align: center;
+  }
+</style>

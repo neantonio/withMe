@@ -1,0 +1,13 @@
+{
+  "name": "withMe",
+  "app_id": "aea0c5a0",
+  "type": "ionic-angular",
+  "typescript": true,
+  "v2": true,
+  "proxies": [
+    {
+      "path": "/idea",
+      "proxyUrl": "http://localhost:8080/idea"
+    }
+  ]
+}

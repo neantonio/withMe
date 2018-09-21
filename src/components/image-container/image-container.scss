@@ -1,0 +1,6 @@
+image-container {
+    img {
+         outline: 1px solid map-get($colors, main-back );
+         outline-offset: -1px;
+    }
+}

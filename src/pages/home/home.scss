@@ -1,0 +1,15 @@
+page-home {
+  idea-expandable-list{
+    display: block
+  }
+  .scroll-content{
+      z-index: auto !important;
+  }
+  .active-button{
+    background-color: map-get($colors, primary );
+    color: map-get($colors, main-back );
+  }
+  .fixed-test{
+    background-color: red;
+  }
+}

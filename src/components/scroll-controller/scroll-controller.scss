@@ -1,0 +1,43 @@
+scroll-controller {
+    
+    .anchor-container{
+        display: flex;
+        height: 0;
+        justify-content: space-around;
+        background-color: map-get($colors , main-back );
+        transition: 0.7s;
+    }
+    .anchor-item{
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+     .expanded{
+         height: 10vw !important;
+    }
+
+.underline-container{
+    background-color: map-get($colors , main-back );
+    height: 0;
+    overflow: hidden;
+    position: relative;
+      display: flex;
+      justify-content: flex-start;
+}
+    .underline{
+       position: absolute;
+       height: 100%;
+       transition: 0.7s;
+        background-color: map-get($colors , main-back );
+    }
+     .colored{
+         background-color: map-get($colors ,primary ) !important;
+    }
+    .underline-expanded{
+        height: 2vw !important;
+    }
+    
+
+}

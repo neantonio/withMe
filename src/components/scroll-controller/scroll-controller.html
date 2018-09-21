@@ -1,0 +1,16 @@
+<!-- Generated template for the ScrollController component -->
+<div class="anchor-container" [class.expanded]="scrollPosition>200">
+ <div class="anchor-item" *ngFor="let anchor of anchors" (click)="onClick(anchor)"  [style.width]="getUnderLineWidth()+'%'">
+   <div  >
+   <ion-icon *ngIf="useIcon" [name]="anchor.iconName"></ion-icon>
+   <span  *ngIf="!useIcon">{{anchor.name}}</span>
+   </div>
+ </div>
+
+</div>
+<div class="underline-container"  [class.underline-expanded]="scrollPosition>200">
+  <!--<div class="underline"   *ngFor="let anchor of anchors" 
+   [style.width]="anchors.indexOf(anchor)<currentAnchorIndex? getUnderLineWidth()+'%':0"
+    ></div>-->
+   <div class="underline colored"   [style]="getUnderlineTransform()"></div>
+</div>

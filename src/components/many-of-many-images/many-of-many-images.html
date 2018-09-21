@@ -1,0 +1,17 @@
+<!-- Generated template for the ManyOfManyImages component -->
+
+<!--<div class="category-icon-wrapper">-->
+  <div class="icon-wrapper unselected">
+    <ion-icon name='search'></ion-icon>
+  </div>
+
+  <div class="icon-wrapper" [class.selected]="textItem.selected" [class.unselected]="!textItem.selected" *ngFor="let textItem of parameter.availableStringValues" >
+    <ion-icon [name]="textItem.icon" (click)="onClick()"></ion-icon>
+  </div>
+
+  <div class="category-icon-wrapper">
+    <category-search [rootCategories]="parameter.availableStringValues" ></category-search>
+  </div>
+<!--</div>-->
+
+

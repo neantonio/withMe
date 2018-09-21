@@ -1,0 +1,41 @@
+<!--
+  Generated template for the IdeaCreationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Создание идеи</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<!--<button  >{{ideaItems[0].name}}</button>-->
+  
+
+<ion-item style=" text-transform: uppercase;" no-lines *ngIf="currentIdeaItem.childItems.length<=1">
+    {{'ИДЕЯ.'+currentIdeaItem.description}}
+    <button class="next-button" ion-button [color]="checkNextButtonActive().canMove? 'primary':'light'" (click)="checkNextButtonActive().canMove? onNextButton(): onHandleMoveError()" item-end >
+      
+      {{checkSkipTextOnButton()? 'Пропустить':'далее'}}
+    </button>
+  </ion-item>
+  
+  <div  *ngIf="currentIdeaItem.childItems.length>1">
+       <button  ion-button color="light" *ngFor="let item of currentIdeaItem.childItems" (click)="onSelectItem(item)" class="button button-positive button-block icon ion-alert-circled">{{item.name}}</button>
+  </div>
+
+<div *ngIf="currentIdeaItem!=null">
+  <div *ngFor="let ideaParameter of currentIdeaItem.parameters" >
+      <app-idea-parameter [parameter]="ideaParameter" (parameterChanged)="onParameterChange(ideaParameter)"></app-idea-parameter>
+   
+  </div>
+</div>
+  
+
+</ion-content>

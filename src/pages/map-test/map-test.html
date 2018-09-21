@@ -1,0 +1,32 @@
+<!--
+  Generated template for the MapTest page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+
+  
+<div class="parent">
+  <!--<div #map id="map" style="height:100%;"></div>
+    <button ion-button icon-only class ="map-control big-button search-button">
+       <ion-icon name="search"></ion-icon>
+    </button>
+    <button ion-button icon-only class ="map-control small-button close-button">
+       <ion-icon name="searchclose"></ion-icon>
+    </button>-->
+
+    <gmap-js [markers]="markers" selectOneMarkerOnClick='true' selectSeveralMarkesrOnClick='true' dragMarkers='true' putSeveralMarkersOnClick='true'  deleteAddedOnDbclick='true'></gmap-js>
+  
+</div>
+
+
+  <div class='label' id='replace'>
+    <svg width="260px" class="svg" height="260px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <circle stroke="#222" fill="#800"  cx="50" cy="50" r="35"/>
+                         <text x="0" y="35px" font-family="Roboto" >Hello, out there </text>'
+                    </svg>
+  </div>
+

@@ -1,0 +1,12 @@
+<!-- Generated template for the IdeaSliderParameter component -->
+
+  
+     
+      <div style="padding-bottom: 5vw;">
+       <div style="float:left;    color: black;" item-start class="item-description" > {{description}}</div>
+      <div style="float:right; color:#aeacb4"item-end class="item-value">{{valuesToShow[numberValue].description}}</div>
+      </div>
+      <ion-range [(ngModel)]="numberValue" [max]="valuesToShow.length-1" (ionChange)="onChange()"> </ion-range>
+  
+
+

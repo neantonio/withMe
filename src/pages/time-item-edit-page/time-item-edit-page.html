@@ -1,0 +1,57 @@
+<!--
+  Generated template for the TimeItemEditPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--<ion-header>
+
+  <ion-navbar>
+    <ion-title>TimeItemEditPage</ion-title>
+  </ion-navbar>
+
+</ion-header>-->
+
+<div class="parent">
+  <div class="back">
+    <ion-list>
+      <ion-item no-lines >
+        <ion-label id="description" class="description" >Описание</ion-label>
+        <ion-input class="value" style="text-align:right" item-end  [(ngModel)]="timeItem.description"></ion-input>
+      </ion-item>
+      <ion-item no-lines>
+        <ion-label class="description">Время начала</ion-label>
+        <ion-datetime class="value" displayFormat="HH:mm" [(ngModel)]="timeItem.date"></ion-datetime>
+      </ion-item>
+
+      
+       
+        <!--<ion-input  item-right type="number" min='0' max='480' [step]="getStep()" [(ngModel)]="timeItem.minDuration"></ion-input>-->
+        
+      
+      <ion-item no-lines>
+        <ion-label> Примерное время</ion-label>
+        <ion-toggle checked="false"></ion-toggle>
+      </ion-item>
+    </ion-list>
+    <div class="slider-wrapper">
+     <idea-slider-parameter [(numberValue)]="durationArrayPos" [valuesToShow]="durationArray" [description]="'Продолжительность'"></idea-slider-parameter>
+    </div>
+    <div class="footer-button-container">
+     <!--<div class="footer-button"><span class="button-inner">OK
+       </span>
+       <div class="button-effect" style="transform: translate3d(-18px, -30px, 0px) scale(1); height: 107px; width: 107px; opacity: 0; transition: transform 311ms, opacity 218ms 93ms;"></div>
+       </div>
+       <div class="footer-button"><span class="button-inner">CANCEL</span></div>-->
+       <button clear ion-button><span class="button-inner" (click)="onOk()">
+            ОК
+          </span></button>
+          <button clear ion-button><span class="button-inner" (click)="onCancel()">
+            Отмена
+          </span></button>
+          <button *ngIf="!newItemCreated" clear ion-button><span class="button-inner" (click)="onDelete()">
+            Удалить
+          </span></button>
+    </div>
+</div>
+

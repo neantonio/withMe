@@ -1,0 +1,33 @@
+<!-- Generated template for the IdeaTimeParameter component -->
+<ion-card>
+  <div class="container">
+
+    
+    <div class="left-block">
+      <div class="round">
+        <div [class]="inverceColor? 'back-two':'back-one'" >  </div>
+        <div class="back-two" *ngIf="noSelected" style="z-index:4;" (click)="editTimeItem(selectedTimeItem)">  </div>
+        <div [class]="inverceColor? 'sector-two':'sector-one'" [style]="getRotate1()" (click)="editTimeItem(selectedTimeItem)"></div>
+        <div [class]="inverceColor? 'sector-two':'sector-one'" [style]="getRotate2()" (click)="editTimeItem(selectedTimeItem)"></div>
+
+        <div class="mark" style="  width:1px;height:3px;left:50%;top:0;">
+        </div>
+        <div class="mark" style=" width:3px;height:1px;top:50%;right:0;">
+        </div>
+        <div class="mark" style="  width:1px;height:3px;left:50%;bottom:0;">
+        </div>
+        <div class="mark" style="  width:3px;height:1px;top:50%;left:0;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="center-block">
+
+    <ion-chip *ngFor="let timeItem of timeItems" [color]="timeItem==selectedTimeItem? 'primary':'default'" (click)="toggleItem(timeItem)">
+      <ion-label>{{timeItem.description}}</ion-label>
+    </ion-chip>
+    <ion-chip [color]="'default'" (click)="addTimeItem(null)">
+      <ion-label>+</ion-label>
+    </ion-chip>
+  </div>
+</ion-card>

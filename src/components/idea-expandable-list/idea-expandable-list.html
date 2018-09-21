@@ -1,0 +1,66 @@
+<!-- Generated template for the IdeaExpandableList component -->
+<div class="expanded-list-background" [class.with-back-ground]="expanded" [class.overlapped]="overlapped">
+</div>
+
+<div #copyWrapper class="copy-wrapper" (scroll)="onScroll($event)" [class.overlapped]="overlapped">
+
+  <div class="header-hider movable" [style]="getHeaderHiderTransition()">
+    <div class="content-expanded relative" [style]="getContentPos()" [class.full-opacity]="expanded">
+      <template ngFor [ngForOf]="data" [ngForTemplate]="itemTemplate"></template>
+    </div>
+  </div>
+
+  <div class="header-hider movable" [style]="getCopyContentTransition()">
+    <div #copy *ngIf="overlapped" class="copy" [style]="getContentPos(hideFromTop)">
+      <div class="content-origin" [class.none-opacity]="!overlapped">
+        <template ngFor [ngForOf]="data" [ngForTemplate]="itemTemplate"></template>
+      </div>
+      <div class="content-expanded" [class.full-opacity]="expanded">
+        <template ngFor [ngForOf]="data2" [ngForTemplate]="itemTemplate"></template>
+      </div>
+    </div>
+  </div>
+
+  <div >
+    <button *ngIf='!useCustomHideButton' ion-button class="hide-button expand-button" [class.no-text]="!permamentExpanded" (click)="hide()" [style]="getButtonTransition()">h</button>
+    <div #hideButtonContainer  class="hide-button expand-button" [style]="getButtonTransition()"></div>
+  </div>
+
+  <!--<div *ngIf='(useCustomHdeButton&&(!useSameHideAndExpandButton))' [style]="getButtonTransition()">
+    <ng-content select="hide-button"></ng-content>
+  </div>
+  <div *ngIf='(useCustomHdeButton&&useSameHideAndExpandButton)' [style]="getButtonTransition()">
+    <ng-content select="expand-button"></ng-content>
+  </div>-->
+
+
+</div>
+
+
+<div #origin>
+  <template ngFor [ngForOf]="data" [ngForTemplate]="itemTemplate"></template>
+</div>
+
+<!--чтобы определить переданы ли эти теги -->
+<!--<div hidden='true'>-->
+<!--<ng-template #expandButtonTemplate>-->
+  <div hidden='true'>
+  <ng-content select="idea-expand-button"></ng-content>
+<!--</ng-template>
+<ng-template #hideButtonTemplate>-->
+  <ng-content select="idea-hide-button"></ng-content>
+<!--</ng-template>-->
+  </div> 
+
+
+
+<!--<ng-content select="hide-button"></ng-content>-->
+
+<!--</div>-->
+
+<div #originButton>
+  <button *ngIf='!useCustomExpandButton' ion-button class="expand-button" [class.no-text]="permamentExpanded" (click)="expand()">e</button>
+  <div #expandButtonContainer >
+  </div>
+
+</div>

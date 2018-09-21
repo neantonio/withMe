@@ -1,0 +1,21 @@
+many-of-many-images {
+    .icon-wrapper{
+        width:8vw;
+        height:8vw;
+        font-size: 7vw;
+        float:left;
+    }
+    .selected{
+        color:map-get($colors,main-back);
+        background: map-get($colors,primary);
+    }
+    .unselected{
+        color:map-get($colors,dark);
+        background: map-get($colors,light);
+    }
+    
+    .category-icon-wrapper{
+background: map-get($colors,light);
+width: 100%;
+    }
+}

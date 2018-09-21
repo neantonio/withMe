@@ -1,0 +1,98 @@
+<!--
+  Generated template for the Testing page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>testing</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div class='sliding-item component-list-wrapper' [class.moved]='!showComponentList'>
+    <ion-list>
+      <ion-item text-wrap *ngFor="let component of availableComponents" detail-push (click)='selectComponentToTest(component)'>
+        {{component.component.name}}
+      </ion-item>
+    </ion-list>
+  </div>
+
+   <div class='sliding-item test-data-wrapper' [class.moved]='!showComponentList'>
+    <ion-list>
+      <ion-item-sliding *ngFor='let data of savedData'>
+      <ion-item text-wrap [class.bug]="data.bug"  class="saved">
+          <div class="data-info-wrapper" >
+            <div >version: {{data.version}}</div>
+             <div >{{data.remark}}</div>
+          </div>
+       
+          <div #dynamicComponentContainerForSavedData></div>
+        
+      </ion-item>
+
+       <ion-item-options>
+        <button ion-button color="secondary" (click)="showJSON(data.data)">
+          <ion-icon name="code"></ion-icon>
+          JSON
+        </button>
+        <button ion-button color="dark" (click)="onEdit(data)">
+          <ion-icon name="create"></ion-icon>
+          Edit
+        </button>
+        <button ion-button color="danger" (click)="omRemove(data)" >
+          <ion-icon name="trash"></ion-icon>
+          Remove
+        </button>
+      </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
+  </div>
+
+  <div class='sliding-item test-data-wrapper' [class.moved]='!showComponentList'>
+    <ion-list>
+      <ion-item-sliding *ngFor='let data of testData'>
+      <ion-item text-wrap >
+       
+          <div #dynamicComponentContainer></div>
+        
+      </ion-item>
+
+       <ion-item-options>
+        <button ion-button color="secondary" (click)="showJSON(data)">
+          <ion-icon name="code"></ion-icon>
+          JSON
+        </button>
+        <button ion-button color="dark" (click)="toCanvas(data)">
+          <ion-icon name="folder"></ion-icon>
+          Save
+        </button>
+       
+      </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
+  </div>
+</ion-content>
+
+<idea-modal [(show)]="showCurrentDataJSON">
+  <pre [innerHTML]="currentTestingData|prettyjson:3"></pre>
+</idea-modal>
+
+<idea-modal [(show)]="showSaveDataDialog">
+  <ion-item text-wrap>
+    <ion-label floating>{{'Remark'|translate}}</ion-label>
+    <ion-input type="text" [(ngModel)]="currentSavingData.remark"></ion-input>
+  </ion-item>
+   <ion-item>
+    <ion-label>{{'Bug'|translate}}</ion-label>
+    <ion-toggle [(ngModel)]="currentSavingData.bug"></ion-toggle>
+  </ion-item>
+
+   <button clear ion-button>{{'ok'|translate}}</button>
+  <button clear ion-button>{{'cancel'|translate}}</button>
+</idea-modal>

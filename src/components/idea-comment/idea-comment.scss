@@ -1,0 +1,43 @@
+idea-comment {
+    .commentWrapper{
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .header-line{
+        width:100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .header-info-wrapper{
+        display: flex;
+      
+        justify-content: space-between;
+        width:80%;
+    }
+    .header-text-wrapper{
+        display: flex;
+        flex-direction: column;
+        width:70%;
+        justify-content: flex-start;
+        margin-left: 20px;
+    }
+    .avatar-wrapper{
+        width:20%;
+        position: relative;
+    }
+    .content-line{
+        width:100%;
+         word-wrap: break-word;
+    }
+    .main-content{
+        color: #666;
+    }
+    .avatar-img{
+        border-radius: 50%;
+        
+        max-width: 100%;
+       
+    }
+}

@@ -1,0 +1,13 @@
+<!-- Generated template for the IdeaModal component -->
+<div class="idea-modal-wrapper" *ngIf="showValue">
+  <div class="idea-modal-background" (click)="onBackGroundClick()"></div>
+    <div class="content-wrapper">
+    <div class="idea-modal-content">
+      <div class="loading" *ngIf="showLoading"> loading</div>
+      <ng-content  *ngIf="!showLoading"></ng-content>
+    </div>
+  </div>
+  
+
+
+</div>

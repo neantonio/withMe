@@ -1,0 +1,23 @@
+content-preview {
+    .content-preview-wrapper{
+        display: flex;
+        justify-content: space-between;
+    }
+    .content-preview-image{
+        width:30%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    .content-preview-text{
+        width:70%;
+        text-align: left;
+        padding-left: 4px;
+    }
+    .content-preview-category{
+        color: map-get($colors, primary );
+        font-size: 75%;
+    }
+
+
+}

@@ -1,0 +1,10 @@
+<!-- Generated template for the ImageContainerElement component -->
+<div *ngIf="lineItem.isLine()"  >
+    <div [style.padding-top]='getMargin(lineItem)' style="position: relative;">
+        <div [style]="getParentStyle(lineItem)">
+        <image-container-element *ngFor="let item of lineItem.getChildren()"  [style]="getStyle(item)" [lineItem]="item" ></image-container-element>
+        </div>
+    </div>
+</div>
+ 
+<img *ngIf="!lineItem.isLine()" style="display: block" [src]="'http://62.176.1.193:8080'+lineItem.image.image" imageViewer/>
